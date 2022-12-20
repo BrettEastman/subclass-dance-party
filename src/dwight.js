@@ -1,7 +1,7 @@
 var makeDwightDancer = function(top, left, timeBetweenSteps) {
   makeBlinkyDancer.call(this, top, left, timeBetweenSteps);
   let img = document.createElement('img');
-  img.src = 'Dwight.png';
+  img.src = 'images/Dwight.png';
   this.$node.append(img);
 };
 

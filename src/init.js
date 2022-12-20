@@ -6,55 +6,60 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
     var dancer = new dancerMakerFunction(
       // the total body height * random num between 0 and 1
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
     window.dancers.push(dancer);
-    $('body').append(dancer.$node);
+    $('body').append(dancer.$node.hide().fadeIn(1000).css('transform', 'scale(1.75)'));
   });
 
-  // function getDistance (xA, yA, xB, yB) {
-  //   var xDiff:Number = xA - xB;
-  //   var yDiff:Number = yA - yB;
-  //   return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-  // }
-
-  $('.danceLineUp').on('click', function(event) {
-    // for loop through window.dancers array
-  //     display: flex;
-  // justify-content: space-around;
-  // align-items: center;
-    for (let i = 0; i < window.dancers.length; i++) {
-      $(window.dancers[i].$node).css('top', '450px');
-      // $(window.dancers[i].$node).css('justify-content', 'space-around');
-      // $(window.dancers[i].$node).css('align-items', 'center');
+  $('.returnDancerButton').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      currentDancer = window.dancers[i];
+      currentDancer.top = $('body').height() * Math.random();
+      currentDancer.left = $('body').height() * Math.random();
+      $(window.dancers[i].$node).hide().fadeIn(1000).css('top', currentDancer.top + 'px');
+      $(window.dancers[i].$node).hide().fadeIn(1000).css('left', currentDancer.left + 'px');
     }
   });
 
-  // $('.moveFunny').on('click', function(event) {
-  //   // for loop through window.dancers array
-  // //     display: flex;
-  // // justify-content: space-around;
-  // // align-items: center;
-  //   for (let i = 0; i < window.dancers.length; i++) {
-  //     $(window.dancers[i].$node).css('top', getDistance(a,b,c,d)'px');
-  //     // $(window.dancers[i].$node).css('justify-content', 'space-around');
-  //     // $(window.dancers[i].$node).css('align-items', 'center');
-  //   }
-  // });
+
+  $('.danceLineUp').on('click', function(event) {
+    for (let i = 0; i < window.dancers.length; i++) {
+      $(window.dancers[i].$node).hide().fadeIn(1000).css('top', '450px');
+    }
+  });
+
+  $('.danceLineUpVertical').on('click', function(event) {
+    for (let i = 0; i < window.dancers.length; i++) {
+      currentDancer = window.dancers[i];
+      console.log(currentDancer.top);
+      nextDancerTop = currentDancer.top + 100;
+
+      $(window.dancers[i].$node).hide().fadeIn(1000).css('top', currentDancer.top + 'px');
+      // $(window.dancers[i].$node).hide().fadeIn(1000).css('left', '300px');
+    }
+  });
+
+  $('.moveFunny').on('click', function(event) {
+    var getDistance = function(xA, yA, xB, yB) {
+      var xDiff = xA - xB;
+      var yDiff = yA - yB;
+      return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    };
+    for (let i = 0; i < window.dancers.length; i++) {
+      if (window.dancers[i + 1] !== undefined) {
+        var currentDancer = window.dancers[i];
+        var nextDancer = window.dancers[i + 1];
+        var pythagorean = getDistance(currentDancer.top, nextDancer.top, currentDancer.left, nextDancer.left);
+        if (pythagorean < 500) {
+          $(window.dancers[i].$node).css('transform', 'rotate(180deg) scale(1.75)');
+        }
+      }
+    }
+  });
 });
-
-// //https://www.kirupa.com/html5/using_the_pythagorean_theorem_to_measure_distance.htm
-// function getDistance(xA, yA, xB, yB) {
-// 	var xDiff:Number = xA - xB;
-// 	var yDiff:Number = yA - yB;
-
-// 	return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-// }
-
-// var distance = getDistance(0, 0, 100, 100);
-// alert(distance);
 
 
 

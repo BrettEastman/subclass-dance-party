@@ -5,6 +5,8 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.step();
   this.setPosition(top, left);
   this.enlarge();
+  this.left = left;
+  this.top = top;
 };
 
 makeDancer.prototype.step = function() {
@@ -21,11 +23,9 @@ makeDancer.prototype.setPosition = function(top, left) {
 
 makeDancer.prototype.enlarge = function() {
   this.$node.hover(function() {
-    $(this).css('transform', 'scale(2.5)');
+    $(this).css('transform', 'scale(3)');
   },
   function() {
-    $(this).css('transform', 'scale(1)');
+    $(this).css('transform', 'scale(1.75)');
   });
 };
-// var newDancerTest = new makeDancer;
-// console.log(newDancerTest);
