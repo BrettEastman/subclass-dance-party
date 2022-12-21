@@ -37,7 +37,7 @@ $(document).ready(function() {
   });
 
 
-  $('.danceLineUpVertical').on('click', function(event) {
+  $('.danceLineUpDiagonal').on('click', function(event) {
     var widthAmt = ($('body').width() / window.dancers.length);
     var topAmt = ($('body').height() / window.dancers.length);
     // need to store the height 800
