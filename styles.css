@@ -8,9 +8,10 @@ body{
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: rgb(186, 162, 66);
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
-.title, .addDancerButton{
+.addDancerButton{
   padding:5px 12px;
   float:right;
 }
@@ -22,17 +23,21 @@ body, a:link, a:visited, a:active{
 
 .topbar{
   height:32px;
-  background-color: #555;
+  background-color: rgb(148, 84, 0);
 }
+
 .title{
-  background-color: #777;
+  background-color: rgb(170, 114, 30);
+  font-size: 18px;
+  padding:5px 12px;
+  float: left;
 }
 .dancer{
   position:absolute;
 }
 
 .dancer:hover {
-  border-color: aqua;
+  border-color: rgb(170, 114, 30);
   border-style: dashed;
   border-width: 10px;
 }
