@@ -7,3 +7,12 @@ var makeDwightDancer = function(top, left, timeBetweenSteps) {
 
 makeDwightDancer.prototype = Object.create(makeBlinkyDancer.prototype);
 makeDwightDancer.prototype.constructor = makeDwightDancer.prototype;
+
+makeDwightDancer.prototype.enlarge = function() {
+  this.$node.hover(function() {
+    $(this).css('transform', 'scale(0.75)');
+  },
+  function() {
+    $(this).css('transform', 'scale(1.75)');
+  });
+};

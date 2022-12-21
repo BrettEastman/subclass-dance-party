@@ -7,3 +7,12 @@ var makeJimDancer = function(top, left, timeBetweenSteps) {
 
 makeJimDancer.prototype = Object.create(makeBlinkyDancer.prototype);
 makeJimDancer.prototype.constructor = makeJimDancer.prototype;
+
+makeJimDancer.prototype.enlarge = function() {
+  this.$node.hover(function() {
+    $(this).css('transform', 'scale(5)');
+  },
+  function() {
+    $(this).css('transform', 'scale(1.75)');
+  });
+};

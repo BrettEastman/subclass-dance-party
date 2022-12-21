@@ -31,9 +31,8 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
-/* .dancer:hover {
+.dancer:hover {
   border-color: aqua;
   border-style: dashed;
   border-width: 10px;
-  transform: scale(2.5);
-} */
+}
